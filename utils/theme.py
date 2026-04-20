@@ -45,9 +45,9 @@ THEME_CSS = """
 }
 
 .hero {
-    padding: 1.5rem 1.7rem;
+    padding: 1.6rem 1.8rem;
     border-radius: 24px;
-    background: linear-gradient(135deg, rgba(33, 62, 89, 0.96), rgba(71, 112, 145, 0.9));
+    background: linear-gradient(135deg, rgba(33, 62, 89, 0.96), rgba(71, 112, 145, 0.90));
     color: #f6fbff;
     box-shadow: 0 18px 42px rgba(36, 64, 87, 0.18);
     margin-bottom: 1.2rem;
@@ -55,7 +55,7 @@ THEME_CSS = """
 
 .hero h1 {
     margin: 0 0 0.7rem 0;
-    font-size: 2.15rem;
+    font-size: 2.2rem;
     line-height: 1.25;
 }
 
