@@ -86,7 +86,6 @@ def render_homepage() -> None:
                     方案对比与智能推荐，形成可解释、可交互、可展示的工艺决策闭环。
                 </p>
                 <div class="hero-badges">
-                    <span class="hero-badge">电子设计竞赛展示版</span>
                     <span class="hero-badge">机理驱动决策</span>
                     <span class="hero-badge">多页面联动</span>
                     <span class="hero-badge">可解释推荐</span>
@@ -106,8 +105,7 @@ def render_homepage() -> None:
                     <div class="logo-shell" style="margin:0 auto 0.9rem auto;">
                         <div class="logo-fallback">陶智沉</div>
                     </div>
-                    <div class="section-title" style="margin-bottom:0.35rem;">竞赛展示版</div>
-                    <p style="margin:0;color:#5f7285;">面向答辩场景的系统首页</p>
+                    <p style="margin:0;color:#5f7285;">系统首页</p>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -122,7 +120,7 @@ def render_homepage() -> None:
             <div class="meta-box">
                 <div class="meta-label">比赛名称</div>
                 <div class="meta-value">{COMPETITION_NAME}</div>
-                <div class="meta-desc">面向竞赛答辩、成果展示与项目汇报场景</div>
+                <div class="meta-desc">面向竞赛答辩、成果展示与项目汇报</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -146,7 +144,7 @@ def render_homepage() -> None:
             <div class="meta-box">
                 <div class="meta-label">项目定位</div>
                 <div class="meta-value">机理驱动的智能工艺决策原型</div>
-                <div class="meta-desc">服务氧化铝陶瓷增材制造过程优化与竞赛展示表达</div>
+                <div class="meta-desc">服务氧化铝陶瓷增材制造过程优化</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -236,18 +234,17 @@ def render_homepage() -> None:
                 <div class="timeline-item"><strong>技术能力：</strong>体现热力预测、风险判读与参数联动分析逻辑。</div>
                 <div class="timeline-item"><strong>系统能力：</strong>体现多页面组织、交互逻辑与统一视觉风格。</div>
                 <div class="timeline-item"><strong>应用能力：</strong>体现面向制造场景的辅助决策与成果转化潜力。</div>
-                <div class="timeline-item"><strong>展示能力：</strong>体现答辩表达清晰、链路完整、逻辑可讲解。</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
     with right:
-        st.markdown("### 答辩讲解逻辑")
+        st.markdown("### 讲解逻辑")
         st.markdown(
             """
             <div class="card">
-                <div class="section-title">推荐讲述顺序</div>
+                <div class="section-title">讲述顺序</div>
                 <ul class="compact-list">
                     <li>先说明项目背景：陶瓷增材制造工艺参数复杂、试错成本高。</li>
                     <li>再说明系统目标：构建可解释的工艺辅助决策展示平台。</li>
@@ -287,7 +284,7 @@ def render_homepage() -> None:
         st.markdown(
             """
             <div class="card">
-                <div class="section-title">建议答辩时重点强调</div>
+                <div class="section-title">重点</div>
                 <span class="tag">机理驱动决策</span>
                 <span class="tag">智能工艺优化</span>
                 <span class="tag">陶瓷增材制造</span>
@@ -299,16 +296,14 @@ def render_homepage() -> None:
             """,
             unsafe_allow_html=True,
         )
-
-    st.markdown(
+  st.markdown(
         """
         <div class="note-callout">
-            首页重点不再重复展示团队信息与比赛说明，而是按照“项目抬头 → 身份概览 → 核心创新 → 系统闭环 → 能力与价值”展开，更符合电子设计竞赛答辩首页逻辑。
+            聚焦氧化铝陶瓷激光增材制造中的热力预测、风险评估与工艺优选，致力于将已验证的科研成果转化为可展示、可交互、可解释的智能工艺决策原理系统。
         </div>
         """,
         unsafe_allow_html=True,
     )
-
 
 render_sidebar_branding()
 
