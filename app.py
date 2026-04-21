@@ -1,11 +1,21 @@
+from pathlib import Path
+
 import streamlit as st
 
 from utils.mock_engine import ensure_session_state, get_latest_results
 from utils.theme import apply_theme, render_header, render_metric_card
 
 
+SYSTEM_TITLE = "陶智沉——氧化铝陶瓷增材制造可解释智能工艺决策系统"
+COMPETITION_NAME = "第二十一届中国研究生电子设计竞赛"
+TEAM_NAME = "陶智沉研队"
+TEAM_SLOGAN = "以机理驱动决策，以智能赋能制造"
+TEAM_MEMBERS = "团队成员：刘心蕊、刘成景、马金涛"
+ADVISOR_INFO = "指导教师：刘保平"
+LOGO_PATH = Path("assets/logo.png")
+
 st.set_page_config(
-    page_title="陶智沉——氧化铝陶瓷增材制造可解释智能工艺决策系统",
+    page_title=SYSTEM_TITLE,
     page_icon="🏆",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -15,15 +25,135 @@ ensure_session_state()
 apply_theme()
 
 
+def render_sidebar_branding() -> None:
+    with st.sidebar:
+        st.markdown('<div class="sidebar-brand-wrap">', unsafe_allow_html=True)
+
+        if LOGO_PATH.exists():
+            st.image(str(LOGO_PATH), width=92)
+        else:
+            st.markdown(
+                """
+                <div class="logo-shell">
+                    <div class="logo-fallback">陶智沉</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+        st.markdown(
+            f"""
+            <div class="sidebar-brand-title">{SYSTEM_TITLE}</div>
+            <div class="sidebar-brand-subtitle">竞赛展示型交互原型系统</div>
+
+            <div class="sidebar-info-card">
+                <div class="sidebar-info-label">比赛名称</div>
+                <div class="sidebar-info-value">{COMPETITION_NAME}</div>
+            </div>
+
+            <div class="sidebar-info-card">
+                <div class="sidebar-info-label">团队名称</div>
+                <div class="sidebar-info-value">{TEAM_NAME}</div>
+                <div class="sidebar-info-desc">{TEAM_SLOGAN}</div>
+            </div>
+
+            <div class="sidebar-info-card">
+                <div class="sidebar-info-label">团队信息</div>
+                <div class="sidebar-info-desc">{TEAM_MEMBERS}</div>
+                <div class="sidebar-info-desc">{ADVISOR_INFO}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
+
+def render_meta_banner() -> None:
+    st.markdown("### 项目身份信息")
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        st.markdown(
+            f"""
+            <div class="meta-box">
+                <div class="meta-label">比赛名称</div>
+                <div class="meta-value">{COMPETITION_NAME}</div>
+                <div class="meta-desc">面向竞赛答辩与成果展示场景</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with c2:
+        st.markdown(
+            f"""
+            <div class="meta-box">
+                <div class="meta-label">团队名称</div>
+                <div class="meta-value">{TEAM_NAME}</div>
+                <div class="meta-desc">{TEAM_SLOGAN}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with c3:
+        st.markdown(
+            """
+            <div class="meta-box">
+                <div class="meta-label">项目定位</div>
+                <div class="meta-value">机理驱动的智能工艺决策原型</div>
+                <div class="meta-desc">服务氧化铝陶瓷增材制造过程优化与竞赛展示表达</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
+def render_team_panel() -> None:
+    left, right = st.columns([1.1, 1])
+
+    with left:
+        st.markdown(
+            f"""
+            <div class="card">
+                <div class="section-title">团队展示区</div>
+                <p><strong>团队名称：</strong>{TEAM_NAME}</p>
+                <p><strong>团队口号：</strong>{TEAM_SLOGAN}</p>
+                <p><strong>团队成员：</strong>{TEAM_MEMBERS}</p>
+                <p><strong>指导教师：</strong>{ADVISOR_INFO.replace("指导教师：", "")}</p>
+                <p>团队围绕氧化铝陶瓷增材制造工艺优化问题，聚焦“机理驱动 + 智能决策 + 可视化展示”三位一体的系统原型构建，突出项目的技术逻辑、工程表达与竞赛展示价值。</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with right:
+        st.markdown(
+            f"""
+            <div class="card">
+                <div class="section-title">比赛展示说明</div>
+                <div class="timeline-item"><strong>参赛赛事：</strong>{COMPETITION_NAME}</div>
+                <div class="timeline-item"><strong>项目名称：</strong>{SYSTEM_TITLE}</div>
+                <div class="timeline-item"><strong>参赛团队：</strong>{TEAM_NAME}</div>
+                <div class="timeline-item"><strong>展示目标：</strong>突出机理建模思维、智能决策能力与制造应用价值</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
 def render_homepage() -> None:
     latest = get_latest_results()
     params = st.session_state["input_params"]
 
     render_header(
-        "陶智沉——氧化铝陶瓷增材制造可解释智能工艺决策系统",
-        "面向竞赛答辩、项目路演与课程汇报场景的交互式原型系统，围绕参数输入、热力预测、风险评估、方案对比与智能推荐，构建可解释的工艺决策展示闭环。",
-        badges=["竞赛展示原型", "中文交互", "多页面联动", "可解释推荐", "蓝灰科技风"],
+        SYSTEM_TITLE,
+        "面向第二十一届中国研究生电子设计竞赛展示场景构建的交互式原型系统，围绕氧化铝陶瓷增材制造中的参数输入、热力预测、风险评估、方案对比与智能推荐，形成可解释、可交互、可展示的工艺决策闭环。",
+        badges=["竞赛展示原型", "多页面联动", "可解释推荐"],
     )
+
+    render_meta_banner()
 
     st.markdown("### 核心指标总览")
     col1, col2, col3, col4 = st.columns(4)
@@ -42,9 +172,9 @@ def render_homepage() -> None:
         st.markdown(
             """
             <div class="showcase-card">
-                <div class="section-kicker">项目定位</div>
-                <div class="section-title">服务陶瓷增材制造工艺决策展示</div>
-                <p>围绕氧化铝陶瓷成形与烧结过程，构建“输入—预测—评估—推荐”的完整演示链路，使抽象工艺优化过程具备可视化与可讲解性。</p>
+                <div class="section-kicker">项目背景</div>
+                <div class="section-title">面向陶瓷增材制造复杂工艺决策场景</div>
+                <p>针对氧化铝陶瓷增材制造过程中参数耦合复杂、试错成本高、缺陷风险难以直观判断等问题，构建面向展示与决策支持的一体化交互原型系统。</p>
             </div>
             """,
             unsafe_allow_html=True,
@@ -53,9 +183,9 @@ def render_homepage() -> None:
         st.markdown(
             """
             <div class="showcase-card">
-                <div class="section-kicker">核心创新</div>
-                <div class="section-title">多页面联动与可解释推荐结合</div>
-                <p>通过 session_state 实现输入参数在多个页面间联动传递，形成系统级交互原型，而非单一页面静态展示，突出“决策系统”特征。</p>
+                <div class="section-kicker">项目特色</div>
+                <div class="section-title">机理驱动与智能推荐相结合</div>
+                <p>系统以热行为、缺陷风险和工艺性能之间的关联逻辑为基础，融合参数联动、风险评估与推荐输出，形成“可解释”的智能工艺决策展示框架。</p>
             </div>
             """,
             unsafe_allow_html=True,
@@ -64,9 +194,9 @@ def render_homepage() -> None:
         st.markdown(
             """
             <div class="showcase-card">
-                <div class="section-kicker">展示价值</div>
-                <div class="section-title">同时体现技术逻辑与应用价值</div>
-                <p>既能够说明工艺参数如何影响热行为与缺陷风险，也能展示推荐结论如何服务制造场景，适合作为比赛答辩首页与项目封面页。</p>
+                <div class="section-kicker">项目价值</div>
+                <div class="section-title">兼顾技术深度、系统表达与竞赛呈现</div>
+                <p>该系统既能够体现项目的工艺理解与算法思维，也能够通过统一界面与交互链路提升答辩展示效果，增强项目整体完成度与说服力。</p>
             </div>
             """,
             unsafe_allow_html=True,
@@ -93,6 +223,8 @@ def render_homepage() -> None:
                 """,
                 unsafe_allow_html=True,
             )
+
+    render_team_panel()
 
     left, right = st.columns([1.15, 1])
 
@@ -130,7 +262,7 @@ def render_homepage() -> None:
         )
 
     with right:
-        st.markdown("### 答辩讲解重点")
+        st.markdown("### 讲解重点")
         st.markdown(
             """
             <div class="card">
@@ -146,11 +278,11 @@ def render_homepage() -> None:
             unsafe_allow_html=True,
         )
 
-        st.markdown("### 比赛展示价值")
+        st.markdown("### 展示价值")
         st.markdown(
             """
             <div class="card">
-                <div class="section-title">适合展示的三类能力</div>
+                <div class="section-title">三类能力</div>
                 <p><strong>1. 技术能力：</strong>体现热力预测、风险判读与参数联动分析框架。</p>
                 <p><strong>2. 系统能力：</strong>体现多页面组织、交互逻辑与统一视觉风格。</p>
                 <p><strong>3. 应用能力：</strong>体现面向制造场景的辅助决策与成果转化潜力。</p>
@@ -180,13 +312,13 @@ def render_homepage() -> None:
             """
             <div class="card">
                 <div class="section-title">适合答辩时强调的关键词</div>
-                <span class="tag">可解释智能决策</span>
+                <span class="tag">机理驱动决策</span>
+                <span class="tag">智能工艺优化</span>
                 <span class="tag">陶瓷增材制造</span>
-                <span class="tag">热力耦合展示</span>
+                <span class="tag">热力预测分析</span>
                 <span class="tag">缺陷风险预警</span>
-                <span class="tag">多方案对比</span>
-                <span class="tag">交互式原型系统</span>
-                <p style="margin-top:0.8rem;">可围绕“技术逻辑清晰、展示链路完整、应用场景明确”三点展开讲解。</p>
+                <span class="tag">交互式展示系统</span>
+                <p style="margin-top:0.8rem;">建议围绕“技术原理清晰、系统架构完整、应用场景明确、展示表达直观”四点展开答辩。</p>
             </div>
             """,
             unsafe_allow_html=True,
@@ -195,12 +327,14 @@ def render_homepage() -> None:
     st.markdown(
         """
         <div class="note-callout">
-            建议答辩演示顺序：先进入“参数输入”修改关键参数，再依次展示“热力预测”“风险评估”“方案对比”“智能推荐”，形成完整叙事闭环。
+            演示顺序：先进入“参数输入”修改关键参数，再依次展示“热力预测”“风险评估”“方案对比”“智能推荐”，形成完整叙事闭环。
         </div>
         """,
         unsafe_allow_html=True,
     )
 
+
+render_sidebar_branding()
 
 pages = {
     "系统导航": [
