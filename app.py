@@ -296,13 +296,13 @@ def render_homepage() -> None:
             """,
             unsafe_allow_html=True,
         )
-  st.markdown(
-        """
-        <div class="note-callout">
+        st.markdown(
+           """
+           <div class="note-callout">
             聚焦氧化铝陶瓷激光增材制造中的热力预测、风险评估与工艺优选，致力于将已验证的科研成果转化为可展示、可交互、可解释的智能工艺决策原理系统。
-        </div>
-        """,
-        unsafe_allow_html=True,
+           </div>
+           """,
+           unsafe_allow_html=True,
     )
 
 render_sidebar_branding()
