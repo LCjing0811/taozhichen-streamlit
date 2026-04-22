@@ -30,7 +30,7 @@ def render_sidebar_branding() -> None:
         members_text = TEAM_MEMBERS.replace("团队成员：", "").strip()
         advisor_text = ADVISOR_INFO.replace("指导教师：", "").strip()
 
-        st.markdown("### 项目信息")
+        st.markdown("### 团队信息")
         box = st.container(border=True)
         with box:
             st.markdown(f"### {TEAM_NAME}")
@@ -93,7 +93,6 @@ def render_homepage() -> None:
             <div class="meta-box">
                 <div class="meta-label">比赛名称</div>
                 <div class="meta-value">{COMPETITION_NAME}</div>
-                <div class="meta-desc">面向竞赛答辩、成果展示与项目汇报场景</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -117,7 +116,7 @@ def render_homepage() -> None:
             <div class="meta-box">
                 <div class="meta-label">项目定位</div>
                 <div class="meta-value">机理驱动的智能工艺决策原型</div>
-                <div class="meta-desc">服务氧化铝陶瓷增材制造过程优化与竞赛展示表达</div>
+                <div class="meta-desc">服务氧化铝陶瓷增材制造过程优化</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -196,39 +195,18 @@ def render_homepage() -> None:
                 unsafe_allow_html=True,
             )
 
-    left, right = st.columns([1.2, 1])
-
-    with left:
-        st.markdown("### 系统能力矩阵")
-        st.markdown(
-            """
-            <div class="card">
-                <div class="section-title">三类核心能力</div>
-                <div class="timeline-item"><strong>技术能力：</strong>体现热力预测、风险判读与参数联动分析逻辑。</div>
-                <div class="timeline-item"><strong>系统能力：</strong>体现多页面组织、交互逻辑与统一视觉风格。</div>
-                <div class="timeline-item"><strong>应用能力：</strong>体现面向制造场景的辅助决策与成果转化潜力。</div>
-                <div class="timeline-item"><strong>展示能力：</strong>体现答辩表达清晰、链路完整、逻辑可讲解。</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    with right:
-        st.markdown("### 答辩讲解逻辑")
-        st.markdown(
-            """
-            <div class="card">
-                <div class="section-title">推荐讲述顺序</div>
-                <ul class="compact-list">
-                    <li>先说明项目背景：陶瓷增材制造工艺参数复杂、试错成本高。</li>
-                    <li>再说明系统目标：构建可解释的工艺辅助决策展示平台。</li>
-                    <li>随后演示参数输入变化如何驱动热力预测与风险评估联动。</li>
-                    <li>最后通过推荐页收束，突出“智能推荐 + 可解释依据”。</li>
-                </ul>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+    st.markdown("### 系统能力矩阵")
+    st.markdown(
+        """
+        <div class="card">
+            <div class="section-title">三类核心能力</div>
+            <div class="timeline-item"><strong>技术能力：</strong>体现热力预测、风险判读与参数联动分析逻辑。</div>
+            <div class="timeline-item"><strong>系统能力：</strong>体现多页面组织、交互逻辑与统一视觉风格。</div>
+            <div class="timeline-item"><strong>应用能力：</strong>体现面向制造场景的辅助决策与成果转化潜力。</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     bottom_left, bottom_right = st.columns([1.15, 1])
 
@@ -274,7 +252,7 @@ def render_homepage() -> None:
     st.markdown(
         """
         <div class="note-callout">
-            首页按照“项目抬头 → 赛事概览 → 核心创新 → 系统闭环 → 能力矩阵 → 参数快照”的顺序组织，更接近电子设计竞赛答辩首页逻辑。
+            首页按照“项目抬头 → 赛事概览 → 核心创新 → 系统闭环 → 系统能力 → 参数快照 → 展示关键词”的顺序组织，更贴近电子设计竞赛答辩首页逻辑。
         </div>
         """,
         unsafe_allow_html=True,
