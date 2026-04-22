@@ -30,7 +30,7 @@ def render_sidebar_branding() -> None:
         st.markdown('<div class="sidebar-brand-wrap">', unsafe_allow_html=True)
 
         if LOGO_PATH.exists():
-            st.image(str(LOGO_PATH), width=92)
+            st.image(str(LOGO_PATH), width=88)
         else:
             st.markdown(
                 """
@@ -43,24 +43,22 @@ def render_sidebar_branding() -> None:
 
         st.markdown(
             f"""
-            <div class="sidebar-brand-title">{SYSTEM_TITLE}</div>
-            <div class="sidebar-brand-subtitle">竞赛展示型交互原型系统</div>
+            <div class="sidebar-profile-card">
+                <div class="sidebar-team-name">{TEAM_NAME}</div>
+                <div class="sidebar-project-name">{SYSTEM_TITLE}</div>
+                <div class="sidebar-slogan">{TEAM_SLOGAN}</div>
 
-            <div class="sidebar-info-card">
-                <div class="sidebar-info-label">比赛名称</div>
-                <div class="sidebar-info-value">{COMPETITION_NAME}</div>
-            </div>
+                <div class="sidebar-divider"></div>
 
-            <div class="sidebar-info-card">
-                <div class="sidebar-info-label">团队名称</div>
-                <div class="sidebar-info-value">{TEAM_NAME}</div>
-                <div class="sidebar-info-desc">{TEAM_SLOGAN}</div>
-            </div>
+                <div class="sidebar-meta-item">
+                    <span class="sidebar-meta-label">团队成员</span>
+                    <span class="sidebar-meta-value">刘心蕊、刘成景、马金涛</span>
+                </div>
 
-            <div class="sidebar-info-card">
-                <div class="sidebar-info-label">团队成员</div>
-                <div class="sidebar-info-desc">{TEAM_MEMBERS}</div>
-                <div class="sidebar-info-desc">{ADVISOR_INFO}</div>
+                <div class="sidebar-meta-item">
+                    <span class="sidebar-meta-label">指导教师</span>
+                    <span class="sidebar-meta-value">刘保平</span>
+                </div>
             </div>
             """,
             unsafe_allow_html=True,
