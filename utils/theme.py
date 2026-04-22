@@ -445,24 +445,3 @@ def render_metric_card(label: str, value: str) -> None:
         """,
         unsafe_allow_html=True,
     ) 
-.center-slogan-bar {
-    margin-top: 1rem;
-    width: 100%;
-    min-height: 82px;
-    border-radius: 20px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(238,244,249,0.94));
-    border: 1px solid rgba(77, 106, 132, 0.16);
-    box-shadow: 0 10px 24px rgba(32, 56, 77, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 1.2rem;
-}
-
-.center-slogan-text {
-    font-size: 1.02rem;
-    font-weight: 700;
-    color: #284a66;
-    line-height: 1.8;
-}
