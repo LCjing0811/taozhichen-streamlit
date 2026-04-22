@@ -60,7 +60,6 @@ def render_homepage() -> None:
                     方案对比与智能推荐，形成可解释、可交互、可展示的工艺决策闭环。
                 </p>
                 <div class="hero-badges">
-                    <span class="hero-badge">电子设计竞赛展示版</span>
                     <span class="hero-badge">机理驱动决策</span>
                     <span class="hero-badge">多页面联动</span>
                     <span class="hero-badge">可解释推荐</span>
@@ -232,18 +231,16 @@ def render_homepage() -> None:
         )
 
     with bottom_right:
-        st.markdown("### 展示关键词")
+        st.markdown("### 关键词")
         st.markdown(
             """
             <div class="card">
-                <div class="section-title">建议答辩时重点强调</div>
                 <span class="tag">机理驱动决策</span>
                 <span class="tag">智能工艺优化</span>
                 <span class="tag">陶瓷增材制造</span>
                 <span class="tag">热力预测分析</span>
                 <span class="tag">缺陷风险预警</span>
                 <span class="tag">交互式展示系统</span>
-                <p style="margin-top:0.8rem;">建议围绕“技术原理清晰、系统架构完整、应用场景明确、展示表达直观”四点展开答辩。</p>
             </div>
             """,
             unsafe_allow_html=True,
@@ -252,7 +249,7 @@ def render_homepage() -> None:
     st.markdown(
         """
         <div class="note-callout">
-            首页按照“项目抬头 → 赛事概览 → 核心创新 → 系统闭环 → 系统能力 → 参数快照 → 展示关键词”的顺序组织，更贴近电子设计竞赛答辩首页逻辑。
+           以机理驱动决策，以智能赋能制造
         </div>
         """,
         unsafe_allow_html=True,
