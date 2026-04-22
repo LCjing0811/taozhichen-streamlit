@@ -30,30 +30,17 @@ def render_sidebar_branding() -> None:
         members_text = TEAM_MEMBERS.replace("团队成员：", "").strip()
         advisor_text = ADVISOR_INFO.replace("指导教师：", "").strip()
 
-        st.markdown(
-            f"""
-            <div class="sidebar-brand-wrap">
-                <div class="sidebar-profile-card">
-                    <div class="sidebar-team-name">{TEAM_NAME}</div>
-                    <div class="sidebar-project-name">{SYSTEM_TITLE}</div>
-                    <div class="sidebar-slogan">{TEAM_SLOGAN}</div>
-
-                    <div class="sidebar-divider"></div>
-
-                    <div class="sidebar-meta-item">
-                        <span class="sidebar-meta-label">团队成员</span>
-                        <span class="sidebar-meta-value">{members_text}</span>
-                    </div>
-
-                    <div class="sidebar-meta-item">
-                        <span class="sidebar-meta-label">指导教师</span>
-                        <span class="sidebar-meta-value">{advisor_text}</span>
-                    </div>
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        st.markdown("### 项目信息")
+        box = st.container(border=True)
+        with box:
+            st.markdown(f"### {TEAM_NAME}")
+            st.markdown(f"**{SYSTEM_TITLE}**")
+            st.caption(TEAM_SLOGAN)
+            st.divider()
+            st.caption("团队成员")
+            st.write(members_text)
+            st.caption("指导教师")
+            st.write(advisor_text)
 
 
 def render_homepage() -> None:
