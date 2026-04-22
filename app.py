@@ -60,6 +60,7 @@ def render_homepage() -> None:
                     方案对比与智能推荐，形成可解释、可交互、可展示的工艺决策闭环。
                 </p>
                 <div class="hero-badges">
+                    <span class="hero-badge">电子设计竞赛展示版</span>
                     <span class="hero-badge">机理驱动决策</span>
                     <span class="hero-badge">多页面联动</span>
                     <span class="hero-badge">可解释推荐</span>
@@ -92,6 +93,7 @@ def render_homepage() -> None:
             <div class="meta-box">
                 <div class="meta-label">比赛名称</div>
                 <div class="meta-value">{COMPETITION_NAME}</div>
+                <div class="meta-desc">面向竞赛答辩、成果展示与项目汇报场景</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -115,7 +117,7 @@ def render_homepage() -> None:
             <div class="meta-box">
                 <div class="meta-label">项目定位</div>
                 <div class="meta-value">机理驱动的智能工艺决策原型</div>
-                <div class="meta-desc">服务氧化铝陶瓷增材制造过程优化</div>
+                <div class="meta-desc">服务氧化铝陶瓷增材制造过程优化与竞赛展示表达</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -205,11 +207,30 @@ def render_homepage() -> None:
                 <div class="timeline-item"><strong>技术能力：</strong>体现热力预测、风险判读与参数联动分析逻辑。</div>
                 <div class="timeline-item"><strong>系统能力：</strong>体现多页面组织、交互逻辑与统一视觉风格。</div>
                 <div class="timeline-item"><strong>应用能力：</strong>体现面向制造场景的辅助决策与成果转化潜力。</div>
+                <div class="timeline-item"><strong>展示能力：</strong>体现答辩表达清晰、链路完整、逻辑可讲解。</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
+    with right:
+        st.markdown("### 答辩讲解逻辑")
+        st.markdown(
+            """
+            <div class="card">
+                <div class="section-title">推荐讲述顺序</div>
+                <ul class="compact-list">
+                    <li>先说明项目背景：陶瓷增材制造工艺参数复杂、试错成本高。</li>
+                    <li>再说明系统目标：构建可解释的工艺辅助决策展示平台。</li>
+                    <li>随后演示参数输入变化如何驱动热力预测与风险评估联动。</li>
+                    <li>最后通过推荐页收束，突出“智能推荐 + 可解释依据”。</li>
+                </ul>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    bottom_left, bottom_right = st.columns([1.15, 1])
 
     with bottom_left:
         st.markdown("### 当前参数快照")
@@ -233,22 +254,31 @@ def render_homepage() -> None:
         )
 
     with bottom_right:
-        st.markdown("### 关键词")
+        st.markdown("### 展示关键词")
         st.markdown(
             """
             <div class="card">
-                <div class="section-title">重点强调</div>
+                <div class="section-title">建议答辩时重点强调</div>
                 <span class="tag">机理驱动决策</span>
                 <span class="tag">智能工艺优化</span>
                 <span class="tag">陶瓷增材制造</span>
                 <span class="tag">热力预测分析</span>
                 <span class="tag">缺陷风险预警</span>
                 <span class="tag">交互式展示系统</span>
+                <p style="margin-top:0.8rem;">建议围绕“技术原理清晰、系统架构完整、应用场景明确、展示表达直观”四点展开答辩。</p>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
+    st.markdown(
+        """
+        <div class="note-callout">
+            首页按照“项目抬头 → 赛事概览 → 核心创新 → 系统闭环 → 能力矩阵 → 参数快照”的顺序组织，更接近电子设计竞赛答辩首页逻辑。
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 render_sidebar_branding()
