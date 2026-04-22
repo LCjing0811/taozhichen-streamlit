@@ -77,7 +77,6 @@ def render_homepage() -> None:
                 """
                 <div class="card" style="text-align:center;padding:1.4rem 1rem;">
                     <div class="section-title" style="font-size:1.25rem;margin-bottom:0.35rem;">陶智沉</div>
-                    <p style="margin:0;color:#5f7285;">系统首页</p>
                 </div>
                 """,
                 unsafe_allow_html=True,
