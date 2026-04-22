@@ -271,14 +271,6 @@ def render_homepage() -> None:
             unsafe_allow_html=True,
         )
 
-    st.markdown(
-        """
-        <div class="note-callout">
-            首页按照“项目抬头 → 赛事概览 → 核心创新 → 系统闭环 → 能力矩阵 → 参数快照”的顺序组织，更接近电子设计竞赛答辩首页逻辑。
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
 
 
 render_sidebar_branding()
