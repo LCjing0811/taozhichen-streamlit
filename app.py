@@ -84,7 +84,7 @@ def render_homepage() -> None:
             )
 
     st.markdown("### 赛事与项目概览")
-    g1, g2, g3 = st.columns(3)
+    g1, g2 = st.columns(2)
 
     with g1:
         st.markdown(
@@ -98,18 +98,6 @@ def render_homepage() -> None:
         )
 
     with g2:
-        st.markdown(
-            f"""
-            <div class="meta-box">
-                <div class="meta-label">团队名称</div>
-                <div class="meta-value">{TEAM_NAME}</div>
-                <div class="meta-desc">{TEAM_SLOGAN}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    with g3:
         st.markdown(
             """
             <div class="meta-box">
@@ -249,7 +237,7 @@ def render_homepage() -> None:
     st.markdown(
         """
         <div class="note-callout">
-           以机理驱动决策，以智能赋能制造
+            以机理驱动决策，以智能赋能制造
         </div>
         """,
         unsafe_allow_html=True,
