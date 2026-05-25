@@ -1,3 +1,4 @@
+# app.py
 import streamlit as st
 
 from utils.mock_engine import ensure_session_state, get_latest_results
@@ -136,7 +137,7 @@ with left:
     st.markdown(
         """
         <div class="card" style="margin-top: 0.9rem;">
-            <div class="section-title">答辩演示路径建议</div>
+            <div class="section-title">路径</div>
             <div class="timeline-item"><strong>1.</strong> 参数输入页：录入打印、烧结与材料参数。</div>
             <div class="timeline-item"><strong>2.</strong> 热力预测页：展示温度场、热梯度与收缩率。</div>
             <div class="timeline-item"><strong>3.</strong> 风险评估页：聚焦裂纹、孔隙、翘曲三类风险。</div>
