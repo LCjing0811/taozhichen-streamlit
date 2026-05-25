@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 
 from utils.mock_engine import ensure_session_state, get_latest_results
